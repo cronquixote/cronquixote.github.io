@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://cronquixote.dev/tags/blog/</loc>
+    <lastmod>2022-12-30T13:08:50-06:00</lastmod>
+  </url><url>
+    <loc>https://cronquixote.dev/</loc>
+    <lastmod>2022-12-30T13:08:50-06:00</lastmod>
+  </url><url>
+    <loc>https://cronquixote.dev/tags/github-pages/</loc>
+    <lastmod>2022-12-30T13:08:50-06:00</lastmod>
+  </url><url>
+    <loc>https://cronquixote.dev/posts/</loc>
+    <lastmod>2022-12-30T13:08:50-06:00</lastmod>
+  </url><url>
+    <loc>https://cronquixote.dev/posts/publish-a-site-on-github-pages-with-a-custom-domain/</loc>
+    <lastmod>2022-12-30T13:08:50-06:00</lastmod>
+  </url><url>
+    <loc>https://cronquixote.dev/tags/</loc>
+    <lastmod>2022-12-30T13:08:50-06:00</lastmod>
+  </url><url>
+    <loc>https://cronquixote.dev/about/</loc>
+  </url><url>
+    <loc>https://cronquixote.dev/categories/</loc>
+  </url>
+</urlset>

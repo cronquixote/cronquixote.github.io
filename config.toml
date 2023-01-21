@@ -1,0 +1,38 @@
+baseURL = 'https://cronquixote.dev'
+languageCode = 'en-us'
+title = 'Cron Quixote'
+theme = 'terminal'
+publishDir = 'docs'
+
+[params]
+  themeColor = 'blue'
+  centerTheme = true
+  readMore = "Read more"
+  TocTitle = "Quick navigation"
+
+  [params.logo]
+    logoText = 'Cron Quixote'
+    LogoHomeLink = '/posts'
+
+[languages]
+  [languages.en]
+    [[languages.en.menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about"
+
+    [[languages.en.menu.main]]
+    identifier = "posts"
+    name = "Posts"
+    url = "/posts"
+
+    [[languages.en.menu.main]]
+    identifier = "tags"
+    name = "Tags"
+    url = "/tags"
+
+    [[languages.en.menu.main]]
+    identifier = 'github'
+    name = 'GitHub'
+    url = 'https://github.com/cronquixote'
+

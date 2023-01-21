@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Publish a Site on Github Pages with a Custom Domain :: Cron Quixote</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Learn how to publish a site to GitHub Pages using a custom domain." />
+<meta name="keywords" content=", " />
+<meta name="robots" content="noodp" />
+
+<link rel="canonical" href="https://cronquixote.dev/posts/publish-a-site-on-github-pages-with-a-custom-domain/" />
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://cronquixote.dev/styles.css">
+
+
+
+
+
+
+
+  <link rel="shortcut icon" href="https://cronquixote.dev/img/theme-colors/blue.png">
+  <link rel="apple-touch-icon" href="https://cronquixote.dev/img/theme-colors/blue.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Publish a Site on Github Pages with a Custom Domain">
+<meta property="og:description" content="Learn how to publish a site to GitHub Pages using a custom domain." />
+<meta property="og:url" content="https://cronquixote.dev/posts/publish-a-site-on-github-pages-with-a-custom-domain/" />
+<meta property="og:site_name" content="Cron Quixote" />
+
+  
+  
+  <meta property="og:image" content="https://cronquixote.dev">
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+  <meta property="article:published_time" content="2022-12-30 13:08:50 -0600 CST" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="blue">
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/posts">
+  <div class="logo">
+    Cron Quixote
+  </div>
+</a>
+
+    </div>
+    
+      <ul class="menu menu--mobile">
+  <li class="menu__trigger">Menu&nbsp;▾</li>
+  <li>
+    <ul class="menu__dropdown">
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="https://github.com/cronquixote">GitHub</a></li>
+        
+      
+        
+          <li><a href="/posts">Posts</a></li>
+        
+      
+        
+          <li><a href="/tags">Tags</a></li>
+        
+      
+      
+    </ul>
+  </li>
+</ul>
+
+    
+    
+  </div>
+  
+    <nav class="navigation-menu">
+  <ul class="navigation-menu__inner menu--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="https://github.com/cronquixote">GitHub</a></li>
+        
+      
+        
+          <li><a href="/posts">Posts</a></li>
+        
+      
+        
+          <li><a href="/tags">Tags</a></li>
+        
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<article class="post">
+  <h1 class="post-title">
+    <a href="https://cronquixote.dev/posts/publish-a-site-on-github-pages-with-a-custom-domain/">Publish a Site on Github Pages with a Custom Domain</a>
+  </h1>
+  <div class="post-meta">
+    
+      <time class="post-date">
+        2022-12-30
+        
+      </time>
+    
+    
+    
+  </div>
+
+  
+    <span class="post-tags">
+      
+      #<a href="https://cronquixote.dev/tags/blog/">blog</a>&nbsp;
+      
+      #<a href="https://cronquixote.dev/tags/github-pages/">github-pages</a>&nbsp;
+      
+    </span>
+  
+  
+
+
+  
+    <div class="table-of-contents">
+      <h2>
+        Quick navigation
+      </h2>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#preface">Preface</a></li>
+    <li><a href="#1-publish-a-simple-hello-world-page">1. Publish a simple &ldquo;Hello, World!&rdquo; page</a></li>
+    <li><a href="#2-configure-your-custom-domain-on-github">2. Configure your custom domain on GitHub</a></li>
+    <li><a href="#3-configure-your-custom-domain-on-your-dns-provider">3. Configure your custom domain on your DNS provider</a></li>
+    <li><a href="#4-verify-that-your-custom-domain-works">4. Verify that your custom domain works</a></li>
+    <li><a href="#5-decide-how-you-want-to-build-your-site">5. Decide how you want to build your site</a></li>
+    <li><a href="#6-build-your-initial-site-and-push-it">6. Build your initial site and push it</a></li>
+    <li><a href="#7-mission-accomplished">7. Mission accomplished</a></li>
+    <li><a href="#optional-secure-your-custom-domain-on-github-to-prevent-potential-takeovers">Optional: Secure your custom domain on GitHub to prevent potential takeovers</a></li>
+    <li><a href="#optional-change-your-publishing-directory">Optional: Change your publishing directory</a></li>
+  </ul>
+</nav>
+    </div>
+  
+
+  <div class="post-content"><div>
+        <h2 id="preface">Preface<a href="#preface" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>All the information needed to do this is present in the official docs, however:</p>
+<ul>
+<li>The content is spread across many pages</li>
+<li>Each page contains a lot of content irrelevant to this use case</li>
+<li>The docs are largely beginner-focused</li>
+</ul>
+<p>This post is a streamlined and somewhat-opinionated guide for experienced engineers.</p>
+<h2 id="1-publish-a-simple-hello-world-page">1. Publish a simple &ldquo;Hello, World!&rdquo; page<a href="#1-publish-a-simple-hello-world-page" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p><a href="https://pages.github.com/">Official docs</a></p>
+<p>Create a new public repo with the required naming convention: <code>&lt;username&gt;.github.io</code>.</p>
+<p>Add an <code>index.html</code> file to this repo with any content, e.g. <code>Hello, World!</code>.</p>
+<p>Visit <code>https://&lt;username&gt;.github.io</code> to verify that it serves the <code>index.html</code> file you just created.</p>
+<h2 id="2-configure-your-custom-domain-on-github">2. Configure your custom domain on GitHub<a href="#2-configure-your-custom-domain-on-github" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p><a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain">Official docs</a></p>
+<p>Visit your new repo in GitHub and click the &ldquo;Settings&rdquo; button.</p>
+<p>In the left sidebar, click &ldquo;Pages&rdquo;.</p>
+<p>In the &ldquo;Custom Domain&rdquo; input, enter your domain, e.g. <code>example.com</code>.</p>
+<p>When you do this, GitHub adds a <code>CNAME</code> file to your repository root, whose content is just the domain you entered above.</p>
+<p>Because of this file addition, sync your local repo with the remote before making any additional changes.</p>
+<h2 id="3-configure-your-custom-domain-on-your-dns-provider">3. Configure your custom domain on your DNS provider<a href="#3-configure-your-custom-domain-on-your-dns-provider" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p><a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain">Official docs</a></p>
+<p>Remove any existing DNS records you don&rsquo;t need.</p>
+<p>Add four A records for the root domain so that it points to the GitHub pages IPs:</p>
+<table>
+<thead>
+<tr>
+<th>Record Type</th>
+<th>Host</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>@</td>
+<td>185.199.108.153</td>
+</tr>
+<tr>
+<td>A</td>
+<td>@</td>
+<td>185.199.109.153</td>
+</tr>
+<tr>
+<td>A</td>
+<td>@</td>
+<td>185.199.110.153</td>
+</tr>
+<tr>
+<td>A</td>
+<td>@</td>
+<td>185.199.111.153</td>
+</tr>
+</tbody>
+</table>
+<p>You can optionally add AAAA records for IPv6.</p>
+<p>Add a CNAME record to redirect the <code>www.</code> subdomain to your root domain:</p>
+<table>
+<thead>
+<tr>
+<th>Record Type</th>
+<th>Host</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CNAME</td>
+<td><a href="https://www.example.com">www.example.com</a>.</td>
+<td>example.com</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-verify-that-your-custom-domain-works">4. Verify that your custom domain works<a href="#4-verify-that-your-custom-domain-works" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p><a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/troubleshooting-custom-domains-and-github-pages">Official docs</a></p>
+<p>Visit your custom domain and ensure that it serves your <code>index.html</code> file. If not, follow the troubleshooting steps linked above.</p>
+<h2 id="5-decide-how-you-want-to-build-your-site">5. Decide how you want to build your site<a href="#5-decide-how-you-want-to-build-your-site" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p><a href="https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll">Official docs for Jekyll</a></p>
+<p><a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#static-site-generators">Official docs for other static site generators</a></p>
+<p>You have two options for building your site:</p>
+<ol>
+<li>Locally</li>
+<li>Remotely (on GitHub)</li>
+</ol>
+<p>I recommend building locally. You&rsquo;re going to want to test your site locally anyway, so why not build it there and skip dealing with GitHub-specific quirks, limitations, and configurations?</p>
+<p>If you choose to build remotely and you use Jekyll as a static site generator, the build process will be automatic. Otherwise, you&rsquo;ll need to configure GitHub Actions to build your site.</p>
+<h2 id="6-build-your-initial-site-and-push-it">6. Build your initial site and push it<a href="#6-build-your-initial-site-and-push-it" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Set up your chosen static site generator locally and run your first build, placing the built files in your site repo&rsquo;s root.</p>
+<p>Before pushing the built files to GitHub, ensure that the <code>CNAME</code> file created above is present in the repository root.</p>
+<p>Push the files and verify that your built site is served at your custom domain.</p>
+<h2 id="7-mission-accomplished">7. Mission accomplished<a href="#7-mission-accomplished" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Now it&rsquo;s time to get writing! 🎉</p>
+<h2 id="optional-secure-your-custom-domain-on-github-to-prevent-potential-takeovers">Optional: Secure your custom domain on GitHub to prevent potential takeovers<a href="#optional-secure-your-custom-domain-on-github-to-prevent-potential-takeovers" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p><a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages">Offical docs</a></p>
+<p>Note: This is only a risk if your domain&rsquo;s DNS records point to GitHub Pages but your site is misconfigured on GitHub or its repo is deleted.</p>
+<h2 id="optional-change-your-publishing-directory">Optional: Change your publishing directory<a href="#optional-change-your-publishing-directory" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p><a href="https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site">Official docs</a></p>
+<p>You can change the directory that GitHub uses to serve your site. GitHub calls this directory a &ldquo;publishing source&rdquo;.</p>
+<p>It can be one of the following:</p>
+<ol>
+<li>The root</li>
+<li>The <code>docs/</code> subdirectory</li>
+</ol>
+<p>You cannot set your publishing source to an arbitrary subdirectory.</p>
+<p>The advantage of using the <code>docs/</code> subdirectory is that you can use the root directory to store files that you want to store in the repo, but don&rsquo;t want to be served with the site, e.g. a <code>README</code> file.</p>
+<p>To change the publishing source, visit the &ldquo;Pages&rdquo; section of your repo&rsquo;s settings and modify the &ldquo;Source&rdquo; dropdown. You can also change the branch that GitHub uses to publish your site to something other than <code>main</code>.</p>
+<p>Note that if you change your publishing source to the <code>docs/</code> subdirectory, then the <code>CNAME</code> file must exist in that subdirectory, not the repo root.</p>
+
+      </div></div>
+
+  
+
+  
+    
+
+  
+</article>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2023 Powered by <a href="http://gohugo.io" target="_blank">Hugo</a></span>
+    
+    <span>and the <a href="https://github.com/panr/hugo-theme-terminal" target="_blank">Terminal</a> theme.</span>
+      </div>
+  </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

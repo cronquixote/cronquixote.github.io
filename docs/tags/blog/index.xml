@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>blog on Cron Quixote</title>
+    <link>https://cronquixote.dev/tags/blog/</link>
+    <description>Recent content in blog on Cron Quixote</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 30 Dec 2022 13:08:50 -0600</lastBuildDate><atom:link href="https://cronquixote.dev/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Publish a Site on Github Pages with a Custom Domain</title>
+      <link>https://cronquixote.dev/posts/publish-a-site-on-github-pages-with-a-custom-domain/</link>
+      <pubDate>Fri, 30 Dec 2022 13:08:50 -0600</pubDate>
+      
+      <guid>https://cronquixote.dev/posts/publish-a-site-on-github-pages-with-a-custom-domain/</guid>
+      <description>Preface All the information needed to do this is present in the official docs, however:
+The content is spread across many pages Each page contains a lot of content irrelevant to this use case The docs are largely beginner-focused This post is a streamlined and somewhat-opinionated guide for experienced engineers.
+1. Publish a simple &amp;ldquo;Hello, World!&amp;rdquo; page Official docs
+Create a new public repo with the required naming convention: &amp;lt;username&amp;gt;.github.io.</description>
+      <content>&lt;h2 id=&#34;preface&#34;&gt;Preface&lt;/h2&gt;
+&lt;p&gt;All the information needed to do this is present in the official docs, however:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The content is spread across many pages&lt;/li&gt;
+&lt;li&gt;Each page contains a lot of content irrelevant to this use case&lt;/li&gt;
+&lt;li&gt;The docs are largely beginner-focused&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This post is a streamlined and somewhat-opinionated guide for experienced engineers.&lt;/p&gt;
+&lt;h2 id=&#34;1-publish-a-simple-hello-world-page&#34;&gt;1. Publish a simple &amp;ldquo;Hello, World!&amp;rdquo; page&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://pages.github.com/&#34;&gt;Official docs&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Create a new public repo with the required naming convention: &lt;code&gt;&amp;lt;username&amp;gt;.github.io&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Add an &lt;code&gt;index.html&lt;/code&gt; file to this repo with any content, e.g. &lt;code&gt;Hello, World!&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Visit &lt;code&gt;https://&amp;lt;username&amp;gt;.github.io&lt;/code&gt; to verify that it serves the &lt;code&gt;index.html&lt;/code&gt; file you just created.&lt;/p&gt;
+&lt;h2 id=&#34;2-configure-your-custom-domain-on-github&#34;&gt;2. Configure your custom domain on GitHub&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain&#34;&gt;Official docs&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Visit your new repo in GitHub and click the &amp;ldquo;Settings&amp;rdquo; button.&lt;/p&gt;
+&lt;p&gt;In the left sidebar, click &amp;ldquo;Pages&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;In the &amp;ldquo;Custom Domain&amp;rdquo; input, enter your domain, e.g. &lt;code&gt;example.com&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;When you do this, GitHub adds a &lt;code&gt;CNAME&lt;/code&gt; file to your repository root, whose content is just the domain you entered above.&lt;/p&gt;
+&lt;p&gt;Because of this file addition, sync your local repo with the remote before making any additional changes.&lt;/p&gt;
+&lt;h2 id=&#34;3-configure-your-custom-domain-on-your-dns-provider&#34;&gt;3. Configure your custom domain on your DNS provider&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain&#34;&gt;Official docs&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Remove any existing DNS records you don&amp;rsquo;t need.&lt;/p&gt;
+&lt;p&gt;Add four A records for the root domain so that it points to the GitHub pages IPs:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Record Type&lt;/th&gt;
+&lt;th&gt;Host&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;A&lt;/td&gt;
+&lt;td&gt;@&lt;/td&gt;
+&lt;td&gt;185.199.108.153&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;A&lt;/td&gt;
+&lt;td&gt;@&lt;/td&gt;
+&lt;td&gt;185.199.109.153&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;A&lt;/td&gt;
+&lt;td&gt;@&lt;/td&gt;
+&lt;td&gt;185.199.110.153&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;A&lt;/td&gt;
+&lt;td&gt;@&lt;/td&gt;
+&lt;td&gt;185.199.111.153&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;You can optionally add AAAA records for IPv6.&lt;/p&gt;
+&lt;p&gt;Add a CNAME record to redirect the &lt;code&gt;www.&lt;/code&gt; subdomain to your root domain:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Record Type&lt;/th&gt;
+&lt;th&gt;Host&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;CNAME&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.example.com&#34;&gt;www.example.com&lt;/a&gt;.&lt;/td&gt;
+&lt;td&gt;example.com&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;4-verify-that-your-custom-domain-works&#34;&gt;4. Verify that your custom domain works&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/troubleshooting-custom-domains-and-github-pages&#34;&gt;Official docs&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Visit your custom domain and ensure that it serves your &lt;code&gt;index.html&lt;/code&gt; file. If not, follow the troubleshooting steps linked above.&lt;/p&gt;
+&lt;h2 id=&#34;5-decide-how-you-want-to-build-your-site&#34;&gt;5. Decide how you want to build your site&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll&#34;&gt;Official docs for Jekyll&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#static-site-generators&#34;&gt;Official docs for other static site generators&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;You have two options for building your site:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Locally&lt;/li&gt;
+&lt;li&gt;Remotely (on GitHub)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;I recommend building locally. You&amp;rsquo;re going to want to test your site locally anyway, so why not build it there and skip dealing with GitHub-specific quirks, limitations, and configurations?&lt;/p&gt;
+&lt;p&gt;If you choose to build remotely and you use Jekyll as a static site generator, the build process will be automatic. Otherwise, you&amp;rsquo;ll need to configure GitHub Actions to build your site.&lt;/p&gt;
+&lt;h2 id=&#34;6-build-your-initial-site-and-push-it&#34;&gt;6. Build your initial site and push it&lt;/h2&gt;
+&lt;p&gt;Set up your chosen static site generator locally and run your first build, placing the built files in your site repo&amp;rsquo;s root.&lt;/p&gt;
+&lt;p&gt;Before pushing the built files to GitHub, ensure that the &lt;code&gt;CNAME&lt;/code&gt; file created above is present in the repository root.&lt;/p&gt;
+&lt;p&gt;Push the files and verify that your built site is served at your custom domain.&lt;/p&gt;
+&lt;h2 id=&#34;7-mission-accomplished&#34;&gt;7. Mission accomplished&lt;/h2&gt;
+&lt;p&gt;Now it&amp;rsquo;s time to get writing! 🎉&lt;/p&gt;
+&lt;h2 id=&#34;optional-secure-your-custom-domain-on-github-to-prevent-potential-takeovers&#34;&gt;Optional: Secure your custom domain on GitHub to prevent potential takeovers&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages&#34;&gt;Offical docs&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Note: This is only a risk if your domain&amp;rsquo;s DNS records point to GitHub Pages but your site is misconfigured on GitHub or its repo is deleted.&lt;/p&gt;
+&lt;h2 id=&#34;optional-change-your-publishing-directory&#34;&gt;Optional: Change your publishing directory&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site&#34;&gt;Official docs&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;You can change the directory that GitHub uses to serve your site. GitHub calls this directory a &amp;ldquo;publishing source&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;It can be one of the following:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The root&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;docs/&lt;/code&gt; subdirectory&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;You cannot set your publishing source to an arbitrary subdirectory.&lt;/p&gt;
+&lt;p&gt;The advantage of using the &lt;code&gt;docs/&lt;/code&gt; subdirectory is that you can use the root directory to store files that you want to store in the repo, but don&amp;rsquo;t want to be served with the site, e.g. a &lt;code&gt;README&lt;/code&gt; file.&lt;/p&gt;
+&lt;p&gt;To change the publishing source, visit the &amp;ldquo;Pages&amp;rdquo; section of your repo&amp;rsquo;s settings and modify the &amp;ldquo;Source&amp;rdquo; dropdown. You can also change the branch that GitHub uses to publish your site to something other than &lt;code&gt;main&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Note that if you change your publishing source to the &lt;code&gt;docs/&lt;/code&gt; subdirectory, then the &lt;code&gt;CNAME&lt;/code&gt; file must exist in that subdirectory, not the repo root.&lt;/p&gt;
+</content>
+    </item>
+    
+  </channel>
+</rss>
