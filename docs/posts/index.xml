@@ -6,7 +6,66 @@
     <description>Recent content in Posts on Cron Quixote</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 30 Dec 2022 13:08:50 -0600</lastBuildDate><atom:link href="https://cronquixote.dev/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 22 Jan 2023 21:17:36 -0600</lastBuildDate><atom:link href="https://cronquixote.dev/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Why Microservices?</title>
+      <link>https://cronquixote.dev/posts/why-microservices/</link>
+      <pubDate>Sun, 22 Jan 2023 21:17:36 -0600</pubDate>
+      
+      <guid>https://cronquixote.dev/posts/why-microservices/</guid>
+      <description>What are microservices? Microservices are small, independently-managed units of software corresponding to fine-grained business domains.
+Synchronous microservices collaborate directly with one another in order to accomplish business tasks.
+Event-driven microservices only collaborate directly with an event queue, publishing events for other services to process and processing events produced by other services.
+In contrast, a monolith is a single, large piece of software whose functionality covers multiple business domains.
+While monolithic architectures are suitable for smaller organizations, microservices make sense for larger enterprises and those experiencing rapid growth.</description>
+      <content>&lt;h2 id=&#34;what-are-microservices&#34;&gt;What are microservices?&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Microservices&lt;/strong&gt; are small, independently-managed units of software corresponding to fine-grained business domains.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Synchronous microservices&lt;/strong&gt; collaborate directly with one another in order to accomplish business tasks.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Event-driven microservices&lt;/strong&gt; only collaborate directly with an event queue, publishing events for other services to process and processing events produced by other services.&lt;/p&gt;
+&lt;p&gt;In contrast, a &lt;strong&gt;monolith&lt;/strong&gt; is a single, large piece of software whose functionality covers multiple business domains.&lt;/p&gt;
+&lt;p&gt;While monolithic architectures are suitable for smaller organizations, microservices make sense for larger enterprises and those experiencing rapid growth.&lt;/p&gt;
+&lt;p&gt;In particular, Software as a Service (SaaS) applications are well-suited to a microservices approach, due to their requirement to operate without maintenance downtime.&lt;/p&gt;
+&lt;h2 id=&#34;how-can-microservices-help&#34;&gt;How can microservices help?&lt;/h2&gt;
+&lt;h3 id=&#34;enable-massive-scalability&#34;&gt;Enable massive scalability&lt;/h3&gt;
+&lt;p&gt;A monolithic codebase must be scaled as a single, unwieldy mass.&lt;/p&gt;
+&lt;p&gt;With microservices, each narrowly-focused software component can be scaled as much as needed to support demand.&lt;/p&gt;
+&lt;p&gt;Event-driven microservices maximixe this flexibility by skirting the need to scale interdependent services as a group.&lt;/p&gt;
+&lt;p&gt;Additionally, lesser-used components can run on lower-powered hardware to reduce costs.&lt;/p&gt;
+&lt;h3 id=&#34;improve-robustness&#34;&gt;Improve robustness&lt;/h3&gt;
+&lt;p&gt;If one part of a monolith fails, the whole system is likely to fail.&lt;/p&gt;
+&lt;p&gt;The clear boundaries between components in a microservices architecture allow the system to continue functioning even while certain areas of service are degraded.&lt;/p&gt;
+&lt;h3 id=&#34;harness-innovation-and-best-in-class-tools&#34;&gt;Harness innovation and best-in-class tools&lt;/h3&gt;
+&lt;p&gt;Because teams construct microservices independently, they can choose the best-in-class language or tool for any given software component.&lt;/p&gt;
+&lt;p&gt;In this way, teams avoid the technical limitations imposed by a monolith built with a single language or paradigm.&lt;/p&gt;
+&lt;p&gt;Teams can quickly incorporate cutting-edge technologies as pilot projects to uncover novel ways of benefitting stakeholders.&lt;/p&gt;
+&lt;h3 id=&#34;speed-up-software-releases&#34;&gt;Speed up software releases&lt;/h3&gt;
+&lt;p&gt;Since teams can release each microservice independently of other services, new features reach customers faster.&lt;/p&gt;
+&lt;p&gt;Releasing software in small pieces makes it easier to isolate the source of any errors and perform quick rollbacks of problematic code.&lt;/p&gt;
+&lt;p&gt;Contrast this with the often cumbersome and risky releases of monolithic software, even for small changes.&lt;/p&gt;
+&lt;h3 id=&#34;better-align-technology-with-the-organization&#34;&gt;Better align technology with the organization&lt;/h3&gt;
+&lt;p&gt;Since the requirements of separate business domains are encapsulated in separate microservices, developers are empowered to make changes quickly and independently from other teams, minimizing coordination costs.&lt;/p&gt;
+&lt;p&gt;Smaller units of software enable smaller teams, whose lower communication overhead yields increased productivity.&lt;/p&gt;
+&lt;h3 id=&#34;aid-comprehensibility&#34;&gt;Aid comprehensibility&lt;/h3&gt;
+&lt;p&gt;Limiting the scope of microservices makes them easier for developers to understand and manage.&lt;/p&gt;
+&lt;p&gt;Improved comprehension means fewer bugs and faster development.&lt;/p&gt;
+&lt;h3 id=&#34;allow-rapid-composition-of-new-product-offerings&#34;&gt;Allow rapid composition of new product offerings&lt;/h3&gt;
+&lt;p&gt;Working with smaller building blocks makes composing new products easier.&lt;/p&gt;
+&lt;p&gt;Extracting a subset of functionality from a monolith is often prohibitively difficult, but microservices are optimized for this type of mix-and-match development.&lt;/p&gt;
+&lt;h2 id=&#34;sources&#34;&gt;Sources&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Bellemare, Adam. Building Event-Driven Microservices: Leveraging Organizational Data at Scale. O&amp;rsquo;Reilly Media, 2020.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Mitra, Ronnie, and Irakli Nadareishvili. Microservices: Up and Running: A Step-by-Step Guide to Building a Microservices Architecture. O&amp;rsquo;Reilly Media, 2021.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Newman, Sam. Building Microservices. O&amp;rsquo;Reilly Media, 2021.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    </item>
+    
     <item>
       <title>Publish a Site on Github Pages with a Custom Domain</title>
       <link>https://cronquixote.dev/posts/publish-a-site-on-github-pages-with-a-custom-domain/</link>

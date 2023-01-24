@@ -2,22 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://cronquixote.dev/tags/blog/</loc>
-    <lastmod>2022-12-30T13:08:50-06:00</lastmod>
+    <loc>https://cronquixote.dev/tags/architecture/</loc>
+    <lastmod>2023-01-22T21:17:36-06:00</lastmod>
   </url><url>
     <loc>https://cronquixote.dev/</loc>
-    <lastmod>2022-12-30T13:08:50-06:00</lastmod>
+    <lastmod>2023-01-22T21:17:36-06:00</lastmod>
+  </url><url>
+    <loc>https://cronquixote.dev/tags/microservices/</loc>
+    <lastmod>2023-01-22T21:17:36-06:00</lastmod>
+  </url><url>
+    <loc>https://cronquixote.dev/posts/</loc>
+    <lastmod>2023-01-22T21:17:36-06:00</lastmod>
+  </url><url>
+    <loc>https://cronquixote.dev/tags/</loc>
+    <lastmod>2023-01-22T21:17:36-06:00</lastmod>
+  </url><url>
+    <loc>https://cronquixote.dev/posts/why-microservices/</loc>
+    <lastmod>2023-01-22T21:17:36-06:00</lastmod>
   </url><url>
     <loc>https://cronquixote.dev/tags/github-pages/</loc>
     <lastmod>2022-12-30T13:08:50-06:00</lastmod>
   </url><url>
-    <loc>https://cronquixote.dev/posts/</loc>
-    <lastmod>2022-12-30T13:08:50-06:00</lastmod>
-  </url><url>
     <loc>https://cronquixote.dev/posts/publish-a-site-on-github-pages-with-a-custom-domain/</loc>
-    <lastmod>2022-12-30T13:08:50-06:00</lastmod>
-  </url><url>
-    <loc>https://cronquixote.dev/tags/</loc>
     <lastmod>2022-12-30T13:08:50-06:00</lastmod>
   </url><url>
     <loc>https://cronquixote.dev/about/</loc>

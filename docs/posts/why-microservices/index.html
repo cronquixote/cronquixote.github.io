@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Why Microservices? :: Cron Quixote</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Making the case for microservices architecture." />
+<meta name="keywords" content=", " />
+<meta name="robots" content="noodp" />
+
+<link rel="canonical" href="https://cronquixote.dev/posts/why-microservices/" />
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://cronquixote.dev/styles.css">
+
+
+
+
+
+
+
+  <link rel="shortcut icon" href="https://cronquixote.dev/img/theme-colors/blue.png">
+  <link rel="apple-touch-icon" href="https://cronquixote.dev/img/theme-colors/blue.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Why Microservices?">
+<meta property="og:description" content="Making the case for microservices architecture." />
+<meta property="og:url" content="https://cronquixote.dev/posts/why-microservices/" />
+<meta property="og:site_name" content="Cron Quixote" />
+
+  
+  
+  <meta property="og:image" content="https://cronquixote.dev">
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+  <meta property="article:published_time" content="2023-01-22 21:17:36 -0600 CST" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="blue">
+
+
+<div class="container center">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/posts">
+  <div class="logo">
+    Cron Quixote
+  </div>
+</a>
+
+    </div>
+    
+      <ul class="menu menu--mobile">
+  <li class="menu__trigger">Menu&nbsp;▾</li>
+  <li>
+    <ul class="menu__dropdown">
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="https://github.com/cronquixote">GitHub</a></li>
+        
+      
+        
+          <li><a href="/posts">Posts</a></li>
+        
+      
+        
+          <li><a href="/tags">Tags</a></li>
+        
+      
+      
+    </ul>
+  </li>
+</ul>
+
+    
+    
+  </div>
+  
+    <nav class="navigation-menu">
+  <ul class="navigation-menu__inner menu--desktop">
+    
+      
+        
+          
+          <li><a href="/about">About</a></li>
+          
+        
+      
+        
+          
+            <li><a href="https://github.com/cronquixote" target="_blank">GitHub</a></li>
+          
+        
+      
+        
+          
+          <li><a href="/posts">Posts</a></li>
+          
+        
+      
+        
+          
+          <li><a href="/tags">Tags</a></li>
+          
+        
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<article class="post">
+  <h1 class="post-title">
+    <a href="https://cronquixote.dev/posts/why-microservices/">Why Microservices?</a>
+  </h1>
+  <div class="post-meta">
+    
+      <time class="post-date">
+        2023-01-22
+        
+      </time>
+    
+    
+    
+  </div>
+
+  
+    <span class="post-tags">
+      
+      #<a href="https://cronquixote.dev/tags/microservices/">microservices</a>&nbsp;
+      
+      #<a href="https://cronquixote.dev/tags/architecture/">architecture</a>&nbsp;
+      
+    </span>
+  
+  
+
+
+  
+    <div class="table-of-contents">
+      <h2>
+        Quick navigation
+      </h2>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-are-microservices">What are microservices?</a></li>
+    <li><a href="#how-can-microservices-help">How can microservices help?</a>
+      <ul>
+        <li><a href="#enable-massive-scalability">Enable massive scalability</a></li>
+        <li><a href="#improve-robustness">Improve robustness</a></li>
+        <li><a href="#harness-innovation-and-best-in-class-tools">Harness innovation and best-in-class tools</a></li>
+        <li><a href="#speed-up-software-releases">Speed up software releases</a></li>
+        <li><a href="#better-align-technology-with-the-organization">Better align technology with the organization</a></li>
+        <li><a href="#aid-comprehensibility">Aid comprehensibility</a></li>
+        <li><a href="#allow-rapid-composition-of-new-product-offerings">Allow rapid composition of new product offerings</a></li>
+      </ul>
+    </li>
+    <li><a href="#sources">Sources</a></li>
+  </ul>
+</nav>
+    </div>
+  
+
+  <div class="post-content"><div>
+        <h2 id="what-are-microservices">What are microservices?<a href="#what-are-microservices" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p><strong>Microservices</strong> are small, independently-managed units of software corresponding to fine-grained business domains.</p>
+<p><strong>Synchronous microservices</strong> collaborate directly with one another in order to accomplish business tasks.</p>
+<p><strong>Event-driven microservices</strong> only collaborate directly with an event queue, publishing events for other services to process and processing events produced by other services.</p>
+<p>In contrast, a <strong>monolith</strong> is a single, large piece of software whose functionality covers multiple business domains.</p>
+<p>While monolithic architectures are suitable for smaller organizations, microservices make sense for larger enterprises and those experiencing rapid growth.</p>
+<p>In particular, Software as a Service (SaaS) applications are well-suited to a microservices approach, due to their requirement to operate without maintenance downtime.</p>
+<h2 id="how-can-microservices-help">How can microservices help?<a href="#how-can-microservices-help" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h3 id="enable-massive-scalability">Enable massive scalability<a href="#enable-massive-scalability" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>A monolithic codebase must be scaled as a single, unwieldy mass.</p>
+<p>With microservices, each narrowly-focused software component can be scaled as much as needed to support demand.</p>
+<p>Event-driven microservices maximixe this flexibility by skirting the need to scale interdependent services as a group.</p>
+<p>Additionally, lesser-used components can run on lower-powered hardware to reduce costs.</p>
+<h3 id="improve-robustness">Improve robustness<a href="#improve-robustness" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>If one part of a monolith fails, the whole system is likely to fail.</p>
+<p>The clear boundaries between components in a microservices architecture allow the system to continue functioning even while certain areas of service are degraded.</p>
+<h3 id="harness-innovation-and-best-in-class-tools">Harness innovation and best-in-class tools<a href="#harness-innovation-and-best-in-class-tools" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Because teams construct microservices independently, they can choose the best-in-class language or tool for any given software component.</p>
+<p>In this way, teams avoid the technical limitations imposed by a monolith built with a single language or paradigm.</p>
+<p>Teams can quickly incorporate cutting-edge technologies as pilot projects to uncover novel ways of benefitting stakeholders.</p>
+<h3 id="speed-up-software-releases">Speed up software releases<a href="#speed-up-software-releases" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Since teams can release each microservice independently of other services, new features reach customers faster.</p>
+<p>Releasing software in small pieces makes it easier to isolate the source of any errors and perform quick rollbacks of problematic code.</p>
+<p>Contrast this with the often cumbersome and risky releases of monolithic software, even for small changes.</p>
+<h3 id="better-align-technology-with-the-organization">Better align technology with the organization<a href="#better-align-technology-with-the-organization" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Since the requirements of separate business domains are encapsulated in separate microservices, developers are empowered to make changes quickly and independently from other teams, minimizing coordination costs.</p>
+<p>Smaller units of software enable smaller teams, whose lower communication overhead yields increased productivity.</p>
+<h3 id="aid-comprehensibility">Aid comprehensibility<a href="#aid-comprehensibility" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Limiting the scope of microservices makes them easier for developers to understand and manage.</p>
+<p>Improved comprehension means fewer bugs and faster development.</p>
+<h3 id="allow-rapid-composition-of-new-product-offerings">Allow rapid composition of new product offerings<a href="#allow-rapid-composition-of-new-product-offerings" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Working with smaller building blocks makes composing new products easier.</p>
+<p>Extracting a subset of functionality from a monolith is often prohibitively difficult, but microservices are optimized for this type of mix-and-match development.</p>
+<h2 id="sources">Sources<a href="#sources" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<ul>
+<li>
+<p>Bellemare, Adam. Building Event-Driven Microservices: Leveraging Organizational Data at Scale. O&rsquo;Reilly Media, 2020.</p>
+</li>
+<li>
+<p>Mitra, Ronnie, and Irakli Nadareishvili. Microservices: Up and Running: A Step-by-Step Guide to Building a Microservices Architecture. O&rsquo;Reilly Media, 2021.</p>
+</li>
+<li>
+<p>Newman, Sam. Building Microservices. O&rsquo;Reilly Media, 2021.</p>
+</li>
+</ul>
+
+      </div></div>
+
+  
+
+  
+    
+
+  
+</article>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2023 Powered by <a href="http://gohugo.io" target="_blank">Hugo</a></span>
+    
+    <span>and the <a href="https://github.com/panr/hugo-theme-terminal" target="_blank">Terminal</a> theme.</span>
+      </div>
+  </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

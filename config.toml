@@ -9,6 +9,7 @@ publishDir = 'docs'
   centerTheme = true
   readMore = "Read more"
   TocTitle = "Quick navigation"
+  oneHeadingSize = false
 
   [params.logo]
     logoText = 'Cron Quixote'

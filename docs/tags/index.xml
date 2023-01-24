@@ -6,13 +6,23 @@
     <description>Recent content in Tags on Cron Quixote</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 30 Dec 2022 13:08:50 -0600</lastBuildDate><atom:link href="https://cronquixote.dev/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 22 Jan 2023 21:17:36 -0600</lastBuildDate><atom:link href="https://cronquixote.dev/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>blog</title>
-      <link>https://cronquixote.dev/tags/blog/</link>
-      <pubDate>Fri, 30 Dec 2022 13:08:50 -0600</pubDate>
+      <title>architecture</title>
+      <link>https://cronquixote.dev/tags/architecture/</link>
+      <pubDate>Sun, 22 Jan 2023 21:17:36 -0600</pubDate>
       
-      <guid>https://cronquixote.dev/tags/blog/</guid>
+      <guid>https://cronquixote.dev/tags/architecture/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>microservices</title>
+      <link>https://cronquixote.dev/tags/microservices/</link>
+      <pubDate>Sun, 22 Jan 2023 21:17:36 -0600</pubDate>
+      
+      <guid>https://cronquixote.dev/tags/microservices/</guid>
       <description></description>
       <content></content>
     </item>
