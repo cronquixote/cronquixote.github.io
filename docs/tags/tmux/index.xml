@@ -1,90 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>terminal on Cron Quixote</title>
-    <link>https://cronquixote.dev/tags/terminal/</link>
-    <description>Recent content in terminal on Cron Quixote</description>
+    <title>tmux on Cron Quixote</title>
+    <link>https://cronquixote.dev/tags/tmux/</link>
+    <description>Recent content in tmux on Cron Quixote</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 24 Jan 2023 21:11:10 -0600</lastBuildDate><atom:link href="https://cronquixote.dev/tags/terminal/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Generating Embeddable Terminal Sessions</title>
-      <link>https://cronquixote.dev/posts/generating-embeddable-terminal-sessions/</link>
-      <pubDate>Tue, 24 Jan 2023 21:11:10 -0600</pubDate>
-      
-      <guid>https://cronquixote.dev/posts/generating-embeddable-terminal-sessions/</guid>
-      <description>Overview There are several tools that allow you to generate image (GIF) or video (WebM, MP4) recordings of a terminal session.
-You can then embed these recordings in a blog to illustrate the input and output of a CLI app.
-Our ideal tool would:
-Be (relatively) easy to install Be configurable via easy to understand text files Generate high quality recordings Perform typing automatically, so we don&amp;rsquo;t have to re-record if we make a mistake The tool I found that best meets these criteria is VHS.</description>
-      <content>&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
-&lt;p&gt;There are several tools that allow you to generate image (GIF) or video (WebM, MP4) recordings of a terminal session.&lt;/p&gt;
-&lt;p&gt;You can then embed these recordings in a blog to illustrate the input and output of a CLI app.&lt;/p&gt;
-&lt;p&gt;Our ideal tool would:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Be (relatively) easy to install&lt;/li&gt;
-&lt;li&gt;Be configurable via easy to understand text files&lt;/li&gt;
-&lt;li&gt;Generate high quality recordings&lt;/li&gt;
-&lt;li&gt;Perform typing automatically, so we don&amp;rsquo;t have to re-record if we make a mistake&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The tool I found that best meets these criteria is &lt;a href=&#34;https://github.com/charmbracelet/vhs&#34;&gt;VHS&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;installing-vhs-with-homebrew&#34;&gt;Installing VHS with Homebrew&lt;/h2&gt;
-&lt;p&gt;If you have Homebrew installed, you can install VHS and all its dependencies easily:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;brew install charmbracelet/tap/vhs ffmpeg
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;brew install ttyd --HEAD
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;installing-vhs-without-homebrew&#34;&gt;Installing VHS without Homebrew&lt;/h2&gt;
-&lt;p&gt;If you don&amp;rsquo;t have Homebrew installed, you can download the binary releases of VHS and ttyd to somewhere on your &lt;code&gt;$PATH&lt;/code&gt;, and install FFmpeg using your package manager.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Release page for &lt;a href=&#34;https://github.com/charmbracelet/vhs/releases&#34;&gt;VHS&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Release page for &lt;a href=&#34;https://github.com/tsl0922/ttyd/releases&#34;&gt;ttyd&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;sudo dnf install ffmpeg-free&lt;/code&gt; on Fedora or &lt;code&gt;sudo apt install ffmpeg&lt;/code&gt; on Ubuntu&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;generate-an-example-tape-file&#34;&gt;Generate an example Tape file&lt;/h2&gt;
-&lt;p&gt;Tape files are just text files that contain commands VHS understands. The file extension &lt;code&gt;.tape&lt;/code&gt; is optional.&lt;/p&gt;
-&lt;p&gt;Generate an example Tape file and view it in your editor to see what&amp;rsquo;s possible:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;vhs new example.tape
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;record-a-tape-file&#34;&gt;Record a Tape file&lt;/h2&gt;
-&lt;p&gt;Alternatively, you can record a Tape file of you issuing terminal commands:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;vhs record &amp;gt; myfile.tape
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If you make any mistakes typing, you can easily fix them in the Tape file.&lt;/p&gt;
-&lt;h2 id=&#34;converting-a-tape-file-to-an-embeddable-asset&#34;&gt;Converting a Tape file to an embeddable asset&lt;/h2&gt;
-&lt;p&gt;When you&amp;rsquo;re satisfied with the content of your Tape file, you can generate an embeddable asset like so:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;vhs &amp;lt; myfile.tape
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If your Tape file doesn&amp;rsquo;t have an &lt;code&gt;Output&lt;/code&gt; command, VHS defaults to creating the file &lt;code&gt;out.gif&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;If you want to create a WebM file, you&amp;rsquo;ll need to add a command to your Tape file, e.g. &lt;code&gt;Output myfile.webm&lt;/code&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;quick-tape-file-reference&#34;&gt;Quick Tape file reference&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# You can generate multiple assets at once&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Output demo.gif
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Output demo.webm
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Output demo.mp4
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# See all available themes with `vhs themes`&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Set Theme Dracula
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# You can use any font available to your terminal&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Set FontFamily &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Droid Sans Mono Slashed for Powerline&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Set FontSize &lt;span style=&#34;color:#ae81ff&#34;&gt;32&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Set the asset dimensions&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Set Width &lt;span style=&#34;color:#ae81ff&#34;&gt;1200&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Set Height &lt;span style=&#34;color:#ae81ff&#34;&gt;600&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Enter your command as text&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Type &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;echo &amp;#39;Hello, World&amp;#39;&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Optionally sleep between commands to improve viewability of the recording&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Sleep 500ms
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Sleep 5s
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Send a special key or control sequence&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Enter
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Ctrl+C
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;example-recording&#34;&gt;Example recording&lt;/h2&gt;
-&lt;p&gt;And now for the payoff:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://cronquixote.dev/vhs-example.gif&#34; alt=&#34;VHS Example&#34;&gt;&lt;/p&gt;
-</content>
-    </item>
-    
+    <lastBuildDate>Tue, 24 Jan 2023 15:34:42 -0600</lastBuildDate><atom:link href="https://cronquixote.dev/tags/tmux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Just Enough tmux</title>
       <link>https://cronquixote.dev/posts/just-enough-tmux/</link>

@@ -86,6 +86,101 @@ Be (relatively) easy to install Be configurable via easy to understand text file
     </item>
     
     <item>
+      <title>Just Enough tmux</title>
+      <link>https://cronquixote.dev/posts/just-enough-tmux/</link>
+      <pubDate>Tue, 24 Jan 2023 15:34:42 -0600</pubDate>
+      
+      <guid>https://cronquixote.dev/posts/just-enough-tmux/</guid>
+      <description>Why tmux? Many terminal emulators offer ways to create multiple tabs and multiple panes within each tab.
+However, each emulator has its own particular keyboard shortcuts, which are not transferrable.
+Using tmux lets you always have easy keyboard access to the functionality you need in any terminal emulator, on any platform.
+There have been entire books published on tmux, but this post is all you need to get a ton of utility from this tool.</description>
+      <content>&lt;h2 id=&#34;why-tmux&#34;&gt;Why tmux?&lt;/h2&gt;
+&lt;p&gt;Many terminal emulators offer ways to create multiple tabs and multiple panes within each tab.&lt;/p&gt;
+&lt;p&gt;However, each emulator has its own particular keyboard shortcuts, which are not transferrable.&lt;/p&gt;
+&lt;p&gt;Using tmux lets you always have easy keyboard access to the functionality you need in any terminal emulator, on any platform.&lt;/p&gt;
+&lt;p&gt;There have been entire books published on tmux, but this post is all you need to get a ton of utility from this tool.&lt;/p&gt;
+&lt;h2 id=&#34;auto-starting-tmux&#34;&gt;Auto-starting tmux&lt;/h2&gt;
+&lt;p&gt;To start a new tmux session automatically when opening a new terminal window, add the following to your &lt;code&gt;.bashrc&lt;/code&gt; (or relevant shell startup file).&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[[&lt;/span&gt; -z &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$TMUX&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;]]&lt;/span&gt;; &lt;span style=&#34;color:#66d9ef&#34;&gt;then&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  tmux new-session
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;fi&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Alternatively, just use &lt;code&gt;tmux new-session&lt;/code&gt; to start a tmux session in the current terminal window.&lt;/p&gt;
+&lt;p&gt;You can exit your tmux session by using the &lt;code&gt;exit&lt;/code&gt; command or entering &lt;code&gt;Ctrl + d&lt;/code&gt; (on Unix).&lt;/p&gt;
+&lt;h2 id=&#34;a-basic-config&#34;&gt;A basic config&lt;/h2&gt;
+&lt;p&gt;The config file goes in your &lt;code&gt;$HOME&lt;/code&gt; directory and is named &lt;code&gt;.tmux.conf&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;All tmux keyboard shortcuts start with the &amp;ldquo;bind key&amp;rdquo;, which defaults to &lt;code&gt;Ctrl + b&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;This line will let you quickly reload your tmux config while making tweaks:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Reload tmux config file with shortcut Ctrl + b, r&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bind r source-file ~/.tmux.conf &lt;span style=&#34;color:#ae81ff&#34;&gt;\;&lt;/span&gt; display-message &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;tmux.conf reloaded&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;adding-vim-like-shortcuts&#34;&gt;Adding vim-like shortcuts&lt;/h2&gt;
+&lt;p&gt;To make tmux behave more like Vim, I like to add the following:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Switch panes with vim directional shortcuts&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bind h &lt;span style=&#34;color:#66d9ef&#34;&gt;select&lt;/span&gt;-pane -L &lt;span style=&#34;color:#75715e&#34;&gt;# Move to left pane with Ctrl + b, h&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bind j &lt;span style=&#34;color:#66d9ef&#34;&gt;select&lt;/span&gt;-pane -D &lt;span style=&#34;color:#75715e&#34;&gt;# Move to lower pane with Ctrl + b, j&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bind k &lt;span style=&#34;color:#66d9ef&#34;&gt;select&lt;/span&gt;-pane -U## Move to upper pane with Ctrl + b, k
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bind l &lt;span style=&#34;color:#66d9ef&#34;&gt;select&lt;/span&gt;-pane -R &lt;span style=&#34;color:#75715e&#34;&gt;# Move to right pane with Ctrl + b, l&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Resize panes with vim directional shortcuts&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# In contrast to pane switching shortcuts, keep holding Ctrl or press it again&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bind -r C-h resize-pane -L &lt;span style=&#34;color:#75715e&#34;&gt;# Shrink left pane with Ctrl + b, Ctrl + h&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bind -r C-j resize-pane -D &lt;span style=&#34;color:#75715e&#34;&gt;# Shrink lower pane with Ctrl + b, Ctrl + j&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bind -r C-k resize-pane -U &lt;span style=&#34;color:#75715e&#34;&gt;# Shrink upper pane with Ctrl + b, Ctrl + k&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bind -r C-l resize-pane -R &lt;span style=&#34;color:#75715e&#34;&gt;# Shrink right pane with Ctrl + b, Ctrl + l&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Use vim movement keys when in copy mode&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;set-window-option -g mode-keys vi
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Emulate vim&amp;#39;s visual mode in tmux copy mode&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bind -T copy-mode-vi &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;v&amp;#39;&lt;/span&gt; send -X begin-selection
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bind -T copy-mode-vi &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;V&amp;#39;&lt;/span&gt; send -X &lt;span style=&#34;color:#66d9ef&#34;&gt;select&lt;/span&gt;-line
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;plugin-manager&#34;&gt;Plugin manager&lt;/h2&gt;
+&lt;p&gt;I like to install a plugin manager, mostly just to get &lt;code&gt;tmux-yank&lt;/code&gt;, which lets me copy to the system clipboard from tmux&amp;rsquo;s copy mode. You can install the &lt;code&gt;tpm&lt;/code&gt; plugin manager using the official docs.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# tmux plugin manager&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;set -g @plugin &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;tmux-plugins/tpm&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# tmux plugin to allow copying selected text in copy mode to system clipboard&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;set -g @plugin &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;tmux-plugins/tmux-yank&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Initialize tmux plugin manager (keep this line at the very bottom of tmux.conf)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;run &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;~/.tmux/plugins/tpm/tpm&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;customizing-the-styles-and-the-status-bar&#34;&gt;Customizing the styles and the status bar&lt;/h2&gt;
+&lt;p&gt;You can tweak the status bar to your heart&amp;rsquo;s content. I like to keep it simple:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Using Dracula theme colors&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Set status line background color (green)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;set-option -g status-style fg&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;black,bg&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#50fa7b&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Set active pane border (purple)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;set-option -g pane-active-border-style fg&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#bd93f9&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Set status line background when receiving message (red)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;set-option -g message-style fg&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;black,bg&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#ff5555&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Set emoji to appear on right side of status line&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;set -g status-right &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;💾 &amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;useful-shortcuts&#34;&gt;Useful shortcuts&lt;/h2&gt;
+&lt;h3 id=&#34;windows&#34;&gt;Windows&lt;/h3&gt;
+&lt;p&gt;Think of windows like &amp;ldquo;tabs&amp;rdquo; in your terminal.&lt;/p&gt;
+&lt;p&gt;Create new window: &lt;code&gt;Ctrl + b, n&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Rename current window: &lt;code&gt;Ctrl + b, ,&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Next window: &lt;code&gt;Ctrl + b, n&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Previous window: &lt;code&gt;Ctrl + b, p&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Select window by number: &lt;code&gt;Ctrl + b, 0..9&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Toggle last active window: &lt;code&gt;Ctrl + b, l&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;panes&#34;&gt;Panes&lt;/h3&gt;
+&lt;p&gt;Split into vertical panes: &lt;code&gt;Ctrl + b, %&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Split into horizontal panes: &lt;code&gt;Ctrl + b, &amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Temporarily make pane take up whole window: &lt;code&gt;Ctrl + b, z&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Toggle pane layouts (resize/reorganize): &lt;code&gt;Ctrl + b, space&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Make pane into a new window: &lt;code&gt;Ctrl + b, !&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Kill pane: &lt;code&gt;Ctrl + b, x&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;general&#34;&gt;General&lt;/h3&gt;
+&lt;p&gt;List shortcuts: &lt;code&gt;Ctrl + b, ?&lt;/code&gt;&lt;/p&gt;
+</content>
+    </item>
+    
+    <item>
       <title>Why Microservices?</title>
       <link>https://cronquixote.dev/posts/why-microservices/</link>
       <pubDate>Sun, 22 Jan 2023 21:17:36 -0600</pubDate>
