@@ -73,7 +73,7 @@ bind -T copy-mode-vi 'V' send -X select-line
 
 
 ## Plugin manager
-I like to install a plugin manager, mostly just to get `tmux-yank`, which lets me copy to the system clipboard from tmux's copy mode. You can install the `tpm` plugin manager using the official docs.
+I like to install a plugin manager, mostly just to get `tmux-yank`, which lets me copy to the system clipboard from tmux's copy mode. You can install the `tpm` plugin manager using the [official docs](https://github.com/tmux-plugins/tpm).
 
 ```bash
 # tmux plugin manager
